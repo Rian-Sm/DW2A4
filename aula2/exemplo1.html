@@ -1,0 +1,47 @@
+<!--
+    A primeiro exemplo de más e boas praticas que eu pensei seria uma indentação no código.
+    
+    Quando o codigo está bem formatado fica mais simples para o desenvolvedor visualizar o que foi feito pelos programadores anteriores.
+-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boas Praticas Exemplo 1 - Identação</title>
+
+<script>
+    //segue um exemplo de uma repetição que a identação correta não existe, isso prejudica um programador que não conhece o codigo a visualizar a informação que foi escrita.
+    function lopping(){
+        let lop = 0;
+
+while (lop < 10){
+     
+    lop ++;
+    console.log(lop)
+}
+
+    }
+        lopping()
+    </script>
+
+    <script>
+    // Ao identar corretamente um codigo fica mais facil visualiar o fim das funções e a composição dos trechos de código.
+        function lopping2(){
+
+            let lop = 0;
+            while (lop < 10){
+                lop ++;
+                console.log(lop)
+            }
+        }
+
+        lopping2()
+    </script>
+
+</head>
+<body>
+    <p>Exemplos 1 de boa pratica em JS</p>
+</body>
+</html>

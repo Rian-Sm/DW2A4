@@ -1,0 +1,130 @@
+<!--
+    código retirado da avaliação de DW1A3 
+
+    exemplo de boas pracicas 3: separar os arquivos de JS do arquivo HTML em geral
+-->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boas Praticas Exemplo 3 - Separação de codigos</title>
+</head>
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-dark  bg-dark ">
+            <span class="navbar-brand mb-0 h1">Questão 1: leitura de contas</span>
+        </nav>
+        
+        <div class="row container ">
+
+            <div class="col-md-6 col-sm-12 my-4">
+                <form>
+                    <div class=" mb-5">
+                        <span class="h4">Adicionar de item</span>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="descricao">descrição da compra:</label>
+                      <input type="text" class="form-control" id="descricao" placeholder="descrição">
+                    </div>
+                    <div class="form-group">
+                      <label for="valor">valor pago:</label>
+                      <input type="number" min=1 class="form-control" id="valor" placeholder="valor pago">
+                    </div>
+                    <input type="button" class="btn btn-primary" value="Resgatar conta" id="button_submit">
+                </form>
+
+            </div>
+            
+            <div class="col-md-6 col-sm-12 my-4">
+                <div class="col-ms-6 ">
+                   <div class="row">
+                       <div class="col-12 mb-5">
+                        <span class="h4">Lista de itens</span>
+                       </div>
+                       <div class="col-12">
+                          <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Descrição da compra</th>
+                                    <th>Valor da Compra</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabela_corpo">
+                                                  
+                            </tbody>
+                            
+                          </table>
+                       </div>
+                   </div>
+                   <div class="row mt-5">
+                    <div class="col-6 ">
+                        <p ><strong>Valor total:</strong></p>
+                    </div>
+                    <div class="col-6">
+                     <span id="valorTotal"></span>
+                    </div>
+                   </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/bootstrap.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+
+    <!-- 
+        script de dominio de negócio junto do documento html é uma pratica ruim devido deixar muitas funções dentro de apenas um documento deixando ele muito extenso e difícil de ser lido.
+
+        esse exemplo de uma pagina pequena que só tem 2 funções ja aumentou o codigo do html em 35, imagine em uma página com muitos processos diferentes colocados ao mesmo tempo.
+    -->
+    <script>
+        var total = 0;
+        function atualizar_lista() {
+            var tabelaLinha = document.createElement("tr")
+            var tdDescricao = document.createElement("td");
+            var tdValor = document.createElement("td");
+
+            var tbody = document.getElementById("tabela_corpo");
+
+            var descricao = document.getElementById("descricao").value;
+            var valor = document.getElementById("valor").value;
+
+            total = Number(total) + Number(valor);
+
+            document.getElementById("descricao").value = "";
+            document.getElementById("valor").value = "";
+
+
+            let text_descricao = document.createTextNode(descricao);
+            let text_valor = document.createTextNode("R$ " + valor);
+
+            document.getElementById("valorTotal").innerHTML = "R$ " + total
+
+            tdDescricao.appendChild(text_descricao);
+            tdValor.appendChild(text_valor);
+
+            tabelaLinha.appendChild(tdDescricao);
+            tabelaLinha.appendChild(tdValor);
+
+            tbody.appendChild(tabelaLinha);
+
+        }
+        var button_action =  document.getElementById("button_submit");
+        button_action.addEventListener("click", atualizar_lista);
+    </script>
+
+    <!-- 
+        A boa pratica seria adicionar um arquivo na pasta de JavaScript com a função expecifica utilizada nessa página como no comentario a baixo.
+
+        isso redirecionaria o programador para o arquivo expecífico da funcionalidade que ele iria analisar ou modificar 
+    -->
+
+    <!--<script src="./js/questao1.js"></script>-->
+    
+</body>
+</html>
