@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 3 - Orientação a Objetos JS</title>
+</head>
+<body>
+    
+</body>
+
+    <h1>AULA 3 - ORIENTAÇÃO À OBJETOS EM JAVASCRIPT</h1>
+
+    <p>
+        parar visualizar o codigo em JS abra a ferramenta de desenvolvedor e olhe o console
+    </p>
+
+
+
+    <script src="pessoa.js"></script>
+    <script src="pessoaJuridica.js"></script>
+    <script src="pessoaFisica.js"></script>
+    <script src="funcionario.js"></script>
+
+    <script>
+        var pessoa1 = new Pessoa("jose", "jaao@mail", "1111-1111");
+        var pessoa2 = new PessoaFisica("jose", "jaao@mail", "1111-1111", "2132435610", "02-06-1999");
+        var pessoa3 = new PessoaJuridica("joss", "contato.jo@mail", "3444-5555", "12312312312", "jo corp");
+        var pessoa4 = new Funcionario("jose", "jaao@mail", "1111-1111", "2132435610", "02-06-1999", "Suporte Técnico");
+
+        console.log(pessoa1);
+        console.log(pessoa2);
+        console.log(pessoa3);
+        console.log(pessoa4);
+    </script>
+</html>
